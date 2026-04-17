@@ -120,11 +120,11 @@
     <header>
         <div class="logo">Portfolio.</div>
         <div class="nav-links">
-            <a class="nav-btn active" data-target="home" data-zh="主页" data-en="Home">Home</a>
-            <a class="nav-btn" data-target="projects" data-zh="项目" data-en="Projects">Projects</a>
-            <a class="nav-btn" data-target="experience" data-zh="工作与科研" data-en="Experience">Experience</a>
-            <a class="nav-btn" data-target="courses" data-zh="学术履历" data-en="Academics">Academics</a>
-            <a class="nav-btn" data-target="contact" data-zh="联系我" data-en="Contact">Contact</a>
+            <a class="nav-btn active bilingual" data-target="home" data-zh="主页" data-en="Home">Home</a>
+            <a class="nav-btn bilingual" data-target="projects" data-zh="项目" data-en="Projects">Projects</a>
+            <a class="nav-btn bilingual" data-target="experience" data-zh="工作与科研" data-en="Experience">Experience</a>
+            <a class="nav-btn bilingual" data-target="courses" data-zh="学术履历" data-en="Academics">Academics</a>
+            <a class="nav-btn bilingual" data-target="contact" data-zh="联系我" data-en="Contact">Contact</a>
         </div>
         <button class="btn-outline" id="langToggle">EN / 中文</button>
     </header>
@@ -183,15 +183,15 @@
         <div class="pills-container">
             <button class="pill active filter-btn" data-filter="UofT">
                 <div class="pill-icon"><img src="assets/UofT.png" alt="UofT Logo"></div>
-                University of Toronto
+                <span class="bilingual" data-en="University of Toronto" data-zh="多伦多大学">University of Toronto</span>
             </button>
             <button class="pill filter-btn" data-filter="UBC">
                 <div class="pill-icon"><img src="assets/UBC.png" alt="UBC Logo"></div>
-                University of British Columbia
+                <span class="bilingual" data-en="University of British Columbia" data-zh="英属哥伦比亚大学">University of British Columbia</span>
             </button>
             <button class="pill filter-btn" data-filter="PKU">
                 <div class="pill-icon"><img src="assets/PKU.png" alt="PKU Logo"></div>
-                Peking University
+                <span class="bilingual" data-en="Peking University" data-zh="北京大学">Peking University</span>
             </button>
         </div>
         <div id="uni-info-bar" class="uni-info-bar"></div>
@@ -319,7 +319,7 @@
         },
         {
             time: "2023.09 - 2023.12", tech: ["C/C++", "OS/161 Kernel"],
-            title_en: "Kernel File System & I/O Management", title_zh: "OS/161 内核文件系统开发",
+            title_en: "Kernel File System & I/O Management", title_zh: "OS/161 教学内核文件系统开发",
             desc_en: [
                 "Implemented file system calls and file descriptor management in the OS/161 kernel, completing I/O routing.",
                 "Designed the relational management mechanism between fd tables, open file objects, and vnodes, properly handling race conditions."
@@ -383,7 +383,7 @@
         },
         {
             time: "2022.05 - 2022.08", tech: ["ESP32", "JavaScript", "IoT Data"],
-            title_en: "Lab Assistant @ Wuhan Univ of Tech", title_zh: "武汉理工大学 实验助理",
+            title_en: "Lab Assistant @ Wuhan Univ of Tech", title_zh: "武汉理工大学 实验室助理",
             desc_en: [
                 "Developed a local web interface using JavaScript on an ESP32 to visualize propeller deformation data collected by fiber optic sensors via real-time charts.",
                 "Implemented a slider control component to precisely adjust brushless motor speed, supporting real-time observation of dynamic propeller deformation."
@@ -395,7 +395,7 @@
         },
         {
             time: "2021.05 - 2021.08", tech: ["Hardware", "Optics", "Problem Solving"],
-            title_en: "Lab Assistant @ YOFC State Key Lab", title_zh: "长飞光纤光缆全国重点实验室 实验助理",
+            title_en: "Lab Assistant @ YOFC State Key Lab", title_zh: "长飞光纤光缆全国重点实验室 助理",
             desc_en: [
                 "Participated in temperature-cycling aging experiments to simulate decades of fiber aging and determine lifespan.",
                 "Identified a critical flaw: fixing the fiber by wrapping it tightly with tape at the top of the test tube caused severe stress concentration, leading to premature breakage.",
@@ -454,26 +454,26 @@
 
     const coursesData = [
         // UofT
-        { code: "ECE1513H", term: "2026 Winter", uni: "UofT", 
+        { code: "ECE1513H", term: "2024 Fall", uni: "UofT", 
           title_en: "Introduction to Machine Learning", title_zh: "机器学习导论", 
           desc_en: "Foundations of machine learning: supervised and unsupervised methods, linear models, evaluation metrics, and an introduction to neural networks.", 
           desc_zh: "机器学习基础：监督与无监督方法、线性模型、评估指标及神经网络入门。" },
-        { code: "ECE1508H", term: "2025 Fall", uni: "UofT", 
-          title_en: "Reinforcement Learning", title_zh: "强化学习", 
-          desc_en: "Advanced topics in deep reinforcement learning, policy gradients, Markov decision processes, and dynamic programming.", 
-          desc_zh: "深度强化学习进阶主题：策略梯度、马尔可夫决策过程以及动态规划。" },
-        { code: "ECE1724H", term: "2025 Fall", uni: "UofT", 
-          title_en: "Special Topics in Software Engineering (Wearable AI)", title_zh: "软件工程专研 (可穿戴人工智能)", 
-          desc_en: "Project-based exploration of wearable systems and on-device AI: sensor fusion, low-power models, embedded deployment, and human-centered design.", 
-          desc_zh: "基于项目的可穿戴系统与端侧 AI 探索：传感器融合、低功耗模型、嵌入式部署及以人为本的设计。" },
-        { code: "ECE1778H", term: "2025 Fall", uni: "UofT", 
+        { code: "ECE1778H", term: "2024 Fall", uni: "UofT", 
           title_en: "Creative Applications for Mobile Devices", title_zh: "移动设备创意应用", 
           desc_en: "Design and development of mobile applications that leverage sensors and machine learning: prototyping, UX for mobile, and performance trade-offs.", 
           desc_zh: "利用传感器与机器学习进行移动应用的设计与开发：原型制作、移动端用户体验以及性能权衡。" },
-        { code: "ECE1779H", term: "2026 Winter", uni: "UofT", 
+        { code: "ECE1724H", term: "2024 Fall", uni: "UofT", 
+          title_en: "Special Topics in Software Engineering (Wearable AI)", title_zh: "软件工程专研 (可穿戴人工智能)", 
+          desc_en: "Project-based exploration of wearable systems and on-device AI: sensor fusion, low-power models, embedded deployment, and human-centered design.", 
+          desc_zh: "基于项目的可穿戴系统与端侧 AI 探索：传感器融合、低功耗模型、嵌入式部署及以人为本的设计。" },
+        { code: "ECE1779H", term: "2025 Winter", uni: "UofT", 
           title_en: "Introduction to Cloud Computing", title_zh: "云计算导论", 
           desc_en: "Principles and practices of cloud computing, scalable architectures, and developing applications for modern cloud environments.", 
           desc_zh: "云计算的原理与实践、可扩展架构，以及现代云环境下的应用开发。" },
+        { code: "ECE1508H", term: "2025 Winter", uni: "UofT", 
+          title_en: "Reinforcement Learning", title_zh: "强化学习", 
+          desc_en: "Advanced topics in deep reinforcement learning, policy gradients, Markov decision processes, and dynamic programming.", 
+          desc_zh: "深度强化学习进阶主题：策略梯度、马尔可夫决策过程以及动态规划。" },
         { code: "APS1051H", term: "2026 Winter", uni: "UofT", 
           title_en: "Portfolio Management Praxis Under Real Market Constraint", title_zh: "真实市场约束下的投资组合管理实践", 
           desc_en: "Practical portfolio management with real-world constraints: portfolio construction, risk measures, optimisation techniques, backtesting, and execution considerations.", 
