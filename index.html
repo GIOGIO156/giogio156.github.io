@@ -13,7 +13,7 @@
             --bg-input: #232323;
             --text-primary: #ffffff;
             --text-secondary: #a3a3a3;
-            --accent: #38bdf8; /* 亮蓝色强调色 */
+            --accent: #38bdf8;
             --border-light: rgba(255, 255, 255, 0.1);
             --border-focus: rgba(255, 255, 255, 0.3);
             --font-display: 'Poppins', sans-serif;
@@ -92,7 +92,7 @@
             border-color: var(--text-primary);
         }
 
-        /* Hero / About 模块 */
+        /* Hero 模块 */
         .hero {
             text-align: center;
             padding: 80px 0 60px;
@@ -132,10 +132,10 @@
             font-size: 1.05rem;
         }
 
-        /* Section 标题规范 */
+        /* Section 标题 */
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         .section-header h2 {
             font-family: var(--font-display);
@@ -150,7 +150,6 @@
             font-size: 0.9rem;
         }
 
-        /* 模块容器 */
         .page-section {
             display: none;
             padding: 60px 0;
@@ -163,41 +162,42 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 升级版胶囊过滤器 (大型带Logo) */
+        /* 超大吸睛胶囊过滤器 (Pills) */
         .pills-container {
             display: flex;
             justify-content: center;
-            gap: 16px;
-            margin-bottom: 50px;
+            gap: 20px;
+            margin-bottom: 60px;
             flex-wrap: wrap;
         }
 
         .pill {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             background: transparent;
             border: 1px solid var(--border-light);
             color: var(--text-secondary);
-            padding: 10px 24px 10px 14px; /* 左边距稍小，为了对齐Logo */
-            border-radius: 40px;
+            padding: 12px 32px 12px 16px; /* 加大 padding */
+            border-radius: 60px; /* 完美半圆角 */
             font-family: var(--font-display);
-            font-size: 1.05rem; /* 字体加大 */
-            font-weight: 500;
+            font-size: 1.15rem; /* 加大文字尺寸 */
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
+        /* 重点放大的 Logo 图标 */
         .pill-icon {
-            width: 32px;
-            height: 32px;
+            width: 48px; /* 从 32px 放大到 48px */
+            height: 48px;
             background-color: #ffffff;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            padding: 8px; /* 留出呼吸空间 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
         .pill-icon img {
@@ -209,25 +209,25 @@
         .pill:hover {
             border-color: var(--border-focus);
             color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.02);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-3px);
         }
 
         .pill.active {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.08);
             border-color: var(--text-primary);
             color: var(--text-primary);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
 
-        /* 课程列表网格布局 */
+        /* 课程列表网格 */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 24px;
         }
 
-        /* 精简版卡片设计 */
+        /* 卡片设计 */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -253,7 +253,7 @@
 
         .card-title {
             font-family: var(--font-display);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 14px;
             line-height: 1.3;
@@ -263,7 +263,7 @@
             font-size: 0.95rem;
             color: var(--text-secondary);
             margin-bottom: 24px;
-            flex-grow: 1; /* 让描述部分撑满空间，保证底栏对齐 */
+            flex-grow: 1; 
         }
 
         .card-footer {
@@ -341,8 +341,8 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2.2rem; }
             .pills-container { gap: 12px; }
-            .pill { font-size: 0.95rem; padding: 8px 18px 8px 10px; }
-            .pill-icon { width: 28px; height: 28px; padding: 4px; }
+            .pill { font-size: 1rem; padding: 8px 24px 8px 12px; }
+            .pill-icon { width: 38px; height: 38px; padding: 6px; }
         }
     </style>
 </head>
@@ -396,19 +396,19 @@
         <div class="pills-container">
             <button class="pill active filter-btn" data-filter="UofT">
                 <div class="pill-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Utoronto_coa.svg" alt="UofT Logo">
+                    <img src="https://logo.clearbit.com/utoronto.ca" alt="UofT Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/en/0/04/Utoronto_coa.svg'">
                 </div>
                 University of Toronto
             </button>
             <button class="pill filter-btn" data-filter="UBC">
                 <div class="pill-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/1/13/University_of_British_Columbia_Logo.svg" alt="UBC Logo">
+                    <img src="https://logo.clearbit.com/ubc.ca" alt="UBC Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/en/1/13/University_of_British_Columbia_Logo.svg'">
                 </div>
                 University of British Columbia
             </button>
             <button class="pill filter-btn" data-filter="PKU">
                 <div class="pill-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/4/48/Peking_University_logo.svg" alt="PKU Logo">
+                    <img src="https://logo.clearbit.com/pku.edu.cn" alt="PKU Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/en/4/48/Peking_University_logo.svg'">
                 </div>
                 Peking University
             </button>
@@ -472,7 +472,7 @@
         });
     });
 
-    // 学术履历数据源
+    // 学术履历数据源 (UBC 去除了 Term, PKU 去除了 Code 和 Term)
     const coursesData = [
         // UofT
         { code: "APS1051H", title: "Portfolio Management Praxis Under Real Market Constraint", term: "2026 Winter", uni: "UofT", desc: "Practical portfolio management with real-world constraints: portfolio construction, risk measures, optimisation techniques, backtesting, and execution considerations." },
@@ -484,24 +484,41 @@
         { code: "APS1052H", title: "AI in Finance: From Neural Networks to Deep Learning", term: "2025 Winter", uni: "UofT", desc: "Applications of neural networks and deep learning to financial problems: pricing, forecasting, risk modeling, and algorithmic trading." },
         { code: "ECE1786H", title: "Creative Applications of NLP", term: "2024 Fall", uni: "UofT", desc: "Applied NLP techniques for creative tasks: text preprocessing, language models, generation and evaluation (including transformer-based models)." },
 
-        // PKU
-        { code: "Credit: 3 | Grade: 83.5", title: "Data Driven Techniques for e-Business", term: "Summer 2022", uni: "PKU", desc: "Exploration of data-driven methodologies, analytics, and infrastructure utilized in modern e-business environments." },
-        { code: "Credit: 3 | Grade: 80.0", title: "Fundamentals of Control Theory", term: "Summer 2022", uni: "PKU", desc: "Mathematical foundations of dynamic systems and control engineering principles." },
+        // PKU (无 Code 和 Term)
+        { title: "Data Driven Techniques for e-Business", uni: "PKU", desc: "Exploration of data-driven methodologies, analytics, and infrastructure utilized in modern e-business environments." },
+        { title: "Fundamentals of Control Theory", uni: "PKU", desc: "Mathematical foundations of dynamic systems and control engineering principles." },
 
-        // UBC
-        { code: "CPEN 491F", title: "Computer Engineering Capstone Design", term: "Year 4", uni: "UBC", desc: "Comprehensive engineering design project integrating hardware and software components." },
-        { code: "CPEN 400D", title: "Deep Learning", term: "Year 3", uni: "UBC", desc: "In-depth study of deep neural networks, backpropagation, and modern deep learning architectures." },
-        { code: "CPEN 331", title: "Operating Systems", term: "Year 3", uni: "UBC", desc: "Core OS concepts: concurrency, memory management, file systems, and process scheduling." },
-        { code: "CPEN 411", title: "Computer Architecture", term: "Year 3", uni: "UBC", desc: "Advanced processor design, memory hierarchies, instruction-level parallelism, and performance analysis." },
-        { code: "CPSC 320", title: "Intermediate Algorithm Design & Analysis", term: "Year 3", uni: "UBC", desc: "Systematic design and mathematical analysis of algorithms, complexity theory, and dynamic programming." },
-        { code: "CPEN 212", title: "Computing Systems II", term: "Winter 2022", uni: "UBC", desc: "Systems-level programming and interactions between software and hardware." },
-        { code: "CPEN 211", title: "Introduction to Microcomputers", term: "Fall 2021", uni: "UBC", desc: "Fundamentals of microcomputer organization and low-level programming; basic assembly and interfacing." }
+        // UBC 200-level 及以上所有课程 (无 Term)
+        { code: "CPEN 491F", title: "Computer Engineering Capstone Design", uni: "UBC", desc: "Comprehensive engineering design project integrating hardware and software components." },
+        { code: "APSC 450", title: "Professional Engineering Practice", uni: "UBC", desc: "Professional and ethical responsibilities of engineers, legal frameworks, and engineering practice." },
+        { code: "CPEN 442", title: "Introduction to Cybersecurity", uni: "UBC", desc: "Fundamentals of computer security, cryptography, network security, and secure software design." },
+        { code: "CPEN 355", title: "Machine Learning with Engineering Applications", uni: "UBC", desc: "Application of machine learning algorithms to solve complex engineering problems." },
+        { code: "CPEN 481", title: "Economic Analysis of Engineering Projects", uni: "UBC", desc: "Techniques for evaluating the economic feasibility and financial aspects of engineering projects." },
+        { code: "CPEN 431", title: "Design of Distributed Software Applications", uni: "UBC", desc: "Architecture, protocols, and implementation of distributed systems and network applications." },
+        { code: "ELEC 331", title: "Computer Communications", uni: "UBC", desc: "Network protocols, data transmission, and the layered architecture of the Internet." },
+        { code: "CPEN 400D", title: "Deep Learning", uni: "UBC", desc: "In-depth study of deep neural networks, backpropagation, and modern deep learning architectures." },
+        { code: "CPEN 411", title: "Computer Architecture", uni: "UBC", desc: "Advanced processor design, memory hierarchies, instruction-level parallelism, and performance analysis." },
+        { code: "CPEN 412", title: "Microcomputer Systems Design", uni: "UBC", desc: "Advanced design of microcomputer systems, integrating microprocessors, memory, and peripherals." },
+        { code: "CPEN 331", title: "Operating Systems", uni: "UBC", desc: "Core OS concepts: concurrency, memory management, file systems, and process scheduling." },
+        { code: "CPEN 311", title: "Digital Systems Design", uni: "UBC", desc: "Advanced digital logic design, hardware description languages (VHDL/Verilog), and FPGA implementation." },
+        { code: "CPSC 320", title: "Intermediate Algorithm Design and Analysis", uni: "UBC", desc: "Systematic design and mathematical analysis of algorithms, complexity theory, and dynamic programming." },
+        { code: "MATH 302", title: "Introduction to Probability", uni: "UBC", desc: "Fundamentals of probability theory, random variables, and probability distributions." },
+        { code: "APSC 377", title: "Nuclear Weapons and Arms Control", uni: "UBC", desc: "Exploration of the history, technology, and political implications of nuclear weapons and arms control." },
+        { code: "CNTO 311", title: "Basic Cantonese for Mandarin Speakers", uni: "UBC", desc: "Basic Cantonese language skills tailored for Mandarin speakers." },
+        { code: "CPEN 291", title: "Computer Engineering Design Studio I", uni: "UBC", desc: "Introductory engineering design projects emphasizing teamwork, requirements and prototyping." },
+        { code: "CPEN 212", title: "Computing Systems II", uni: "UBC", desc: "Systems-level programming and interactions between software and hardware." },
+        { code: "CPSC 221", title: "Basic Algorithms and Data Structures", uni: "UBC", desc: "Design and analysis of basic algorithms and data structures, including lists, trees, and graphs." },
+        { code: "ELEC 201", title: "Circuit Analysis I", uni: "UBC", desc: "Analysis of linear circuits, circuit laws and basic network theorems used in engineering." },
+        { code: "MATH 256", title: "Differential Equations", uni: "UBC", desc: "Ordinary differential equations and techniques for solving engineering problems." },
+        { code: "MATH 220", title: "Mathematical Proof", uni: "UBC", desc: "Introduction to mathematical proofs, set theory, and formal logic." },
+        { code: "CPEN 221", title: "Software Construction I", uni: "UBC", desc: "Principles of software design, modularity and testing; practical coding and design assignments." },
+        { code: "CPEN 211", title: "Introduction to Microcomputers", uni: "UBC", desc: "Fundamentals of microcomputer organization and low-level programming; basic assembly and interfacing." }
     ];
 
     const courseContainer = document.getElementById('course-container');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // 渲染精简版卡片
+    // 渲染卡片逻辑升级：根据数据存在与否动态生成 HTML
     function renderCourses(filter) {
         courseContainer.innerHTML = '';
         const filteredData = coursesData.filter(c => c.uni === filter);
@@ -510,13 +527,21 @@
             const card = document.createElement('div');
             card.className = 'card';
             
-            card.innerHTML = `
-                <div class="card-code">${course.code}</div>
-                <div class="card-title">${course.title}</div>
-                <div class="card-desc">${course.desc}</div>
+            // 动态条件渲染：有 code 才渲染 code 的 div，有 term 才渲染 footer
+            let codeHtml = course.code ? `<div class="card-code">${course.code}</div>` : '';
+            let footerHtml = course.term ? `
                 <div class="card-footer">
                     <span>${course.term}</span>
-                </div>
+                </div>` : '';
+            
+            // 如果没有 code，给 title 增加上边距，防止贴顶
+            let titleMargin = !course.code ? 'margin-top: 10px;' : '';
+
+            card.innerHTML = `
+                ${codeHtml}
+                <div class="card-title" style="${titleMargin}">${course.title}</div>
+                <div class="card-desc" style="${!course.term ? 'margin-bottom: 0;' : ''}">${course.desc}</div>
+                ${footerHtml}
             `;
             courseContainer.appendChild(card);
         });
@@ -531,7 +556,7 @@
         });
     });
 
-    // 初始渲染多大 (UofT) 课程，不再有 All
+    // 初始渲染多大 (UofT)
     renderCourses('UofT');
 </script>
 
