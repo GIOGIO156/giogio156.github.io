@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Engineer Portfolio</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        /* 磨砂质感卡片设计 */
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, World.</h1>
+        <p>专注于生成式 AI、底层架构优化与计算机视觉的开发者。探索高维空间的结构，并致力于将前沿理论转化为可落地的工程实践。</p>
+
+        <div class="project-card">
+            <h3>视频预测与生成网络</h3>
+            <div style="color: #bbb; font-size: 0.9rem;">基于动力学原理的连续帧预测与优化</div>
+            <div class="tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">Diffusion Models</span>
+                <span class="tag">Time-Series</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>大模型部署与 API 集成</h3>
+            <div style="color: #bbb; font-size: 0.9rem;">全栈环境配置与大语言模型的高效调用</div>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">LLM Integration</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
