@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Systems Engineer</title>
+    <title>Yiwei Cao | AI & Systems Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         /* 深色主题配色规范 */
@@ -78,7 +78,6 @@
         .card-code { font-size: 0.85rem; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-bottom: 10px; font-weight: 600; }
         .card-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; margin-bottom: 14px; line-height: 1.3; }
         
-        /* 核心修复：Bullet Points 排版 */
         .card-desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; flex-grow: 1; }
         .card-desc ul { list-style: none; padding-left: 0; margin: 0; }
         .card-desc li { position: relative; padding-left: 18px; margin-bottom: 10px; line-height: 1.5; }
@@ -99,6 +98,10 @@
         .btn-submit { background: var(--text-primary); color: var(--bg-main); border: none; padding: 14px; border-radius: 8px; font-family: var(--font-display); font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 10px; transition: opacity 0.3s; }
         .btn-submit:hover { opacity: 0.9; }
         
+        .email-display { font-family: var(--font-display); color: var(--accent); font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .email-display a { color: var(--accent); text-decoration: none; transition: opacity 0.3s; }
+        .email-display a:hover { opacity: 0.8; }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.2rem; }
@@ -127,8 +130,8 @@
     </header>
 
     <div id="home" class="page-section hero active">
-        <img src="https://ui-avatars.com/api/?name=AI+Engineer&background=1c1c1c&color=fff&size=150" alt="Avatar" class="avatar">
-        <h1 class="bilingual" data-en="Hello, I'm an AI Developer" data-zh="你好，我是 AI 开发者">Hello, I'm an AI Developer</h1>
+        <img src="https://ui-avatars.com/api/?name=Yiwei+Cao&background=1c1c1c&color=fff&size=150" alt="Avatar" class="avatar">
+        <h1 class="bilingual" data-en="Hello, I am Yiwei Cao" data-zh="你好，我是 曹轶炜">Hello, I am Yiwei Cao</h1>
         <h2 class="bilingual" data-en="AI & Systems Engineer 💻" data-zh="人工智能与系统工程师 💻">AI & Systems Engineer 💻</h2>
         <p class="bilingual" 
            data-en="As a passionate developer with expertise in computer architecture, machine learning, and deep learning, I thrive on the challenges of exploring complex data landscapes, optimizing hardware-level operations, and training generative AI models." 
@@ -196,10 +199,16 @@
     </div>
 
     <div id="contact" class="page-section">
-        <div class="section-header">
+        <div class="section-header" style="margin-bottom: 20px;">
             <h2 class="bilingual" data-en="Get In Touch" data-zh="联系我">Get In Touch</h2>
             <p class="bilingual" data-en="Let's work together" data-zh="期待交流与合作">Let's work together</p>
         </div>
+        
+        <div class="email-display">
+            <span>✉️</span>
+            <a href="mailto:george.cao@mail.utoronto.ca">george.cao@mail.utoronto.ca</a>
+        </div>
+
         <form class="contact-form" onsubmit="event.preventDefault();">
             <div class="input-group">
                 <label class="bilingual" data-en="Name" data-zh="姓名">Name</label>
@@ -227,6 +236,7 @@
     function updateBilingualTexts() {
         const bilingualElements = document.querySelectorAll('.bilingual');
         bilingualElements.forEach(el => {
+            if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return; 
             el.innerHTML = el.getAttribute(`data-${currentLang}`);
         });
     }
@@ -249,18 +259,15 @@
         });
     });
 
-    // ===== 数组转 HTML List 辅助函数 =====
     function generateListHtml(items) {
         return `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
     }
 
-    // ===== 项目经历数据 (分离独立) =====
+    // ===== 项目经历数据 =====
     const projectsData = [
         {
-            time: "2026.01 - 2026.04",
-            tech: ["PyTorch", "Diffusers", "Swin Transformer"],
-            title_en: "Future Frame Prediction on KITTI (VAE + Rectified Flow)",
-            title_zh: "KITTI 未来帧预测 (VAE + Rectified Flow)",
+            time: "2026.01 - 2026.04", tech: ["PyTorch", "Diffusers", "Swin Transformer"],
+            title_en: "Future Frame Prediction on KITTI (VAE + Rectified Flow)", title_zh: "KITTI 未来帧预测 (VAE + Rectified Flow)",
             desc_en: [
                 "Built a future frame prediction pipeline based on VAE latent space and conditional Rectified Flow.",
                 "Developed a unified framework supporting MiniUNet and Swin-UNet, achieving 64x inference acceleration and 75% VRAM reduction.",
@@ -273,10 +280,8 @@
             ]
         },
         {
-            time: "2025.09 - 2025.12",
-            tech: ["PyTorch", "Transformers", "PPO", "DistilGPT2"],
-            title_en: "RLHF Pipeline for Language Models",
-            title_zh: "基于 PPO 的语言模型后训练流水线",
+            time: "2025.09 - 2025.12", tech: ["PyTorch", "Transformers", "PPO", "DistilGPT2"],
+            title_en: "RLHF Pipeline for Language Models", title_zh: "基于 PPO 的语言模型后训练流水线",
             desc_en: [
                 "Implemented SFT baseline, PPO training, and automated evaluation based on DistilGPT2, modularizing the policy model and value head.",
                 "Designed a composite reward function combining sentiment, repetition penalty, and length constraints.",
@@ -289,10 +294,8 @@
             ]
         },
         {
-            time: "2024.09 - 2025.04",
-            tech: ["Dart/Flutter", "OpenAI API", "Vector RAG"],
-            title_en: "MapChat Intelligent Geo-Assistant",
-            title_zh: "MapChat 智能地理助手 (Function Calling)",
+            time: "2024.09 - 2025.04", tech: ["Dart/Flutter", "OpenAI API", "Vector RAG"],
+            title_en: "MapChat Intelligent Geo-Assistant", title_zh: "MapChat 智能地理助手 (Function Calling)",
             desc_en: [
                 "Collaborated with EagleEyesSearch Inc. to develop an intelligent geo-assistant for forest firefighting, supporting voice/text interactions.",
                 "Upgraded manual retrieval to a Document RAG pipeline with semantic chunking and vector search to improve policy QA accuracy."
@@ -303,10 +306,8 @@
             ]
         },
         {
-            time: "2024.01 - 2024.04",
-            tech: ["Java", "AWS EC2", "Gossip Protocol"],
-            title_en: "Distributed Key-Value Storage System",
-            title_zh: "分布式键值存储系统",
+            time: "2024.01 - 2024.04", tech: ["Java", "AWS EC2", "Gossip Protocol"],
+            title_en: "Distributed Key-Value Storage System", title_zh: "分布式键值存储系统",
             desc_en: [
                 "Implemented a distributed KV store using consistent hashing, achieving data sharding and load balancing across an 80-node EC2 cluster.",
                 "Utilized Gossip protocol for node communication and memory replication strategies to ensure high availability."
@@ -317,10 +318,8 @@
             ]
         },
         {
-            time: "2023.09 - 2023.12",
-            tech: ["C/C++", "OS/161 Kernel"],
-            title_en: "Kernel File System & I/O Management",
-            title_zh: "OS/161 教学内核文件系统开发",
+            time: "2023.09 - 2023.12", tech: ["C/C++", "OS/161 Kernel"],
+            title_en: "Kernel File System & I/O Management", title_zh: "OS/161 教学内核文件系统开发",
             desc_en: [
                 "Implemented file system calls and file descriptor management in the OS/161 kernel, completing I/O routing.",
                 "Designed the relational management mechanism between fd tables, open file objects, and vnodes, properly handling race conditions."
@@ -331,10 +330,8 @@
             ]
         },
         {
-            time: "2023.09 - 2023.12",
-            tech: ["C/C++", "ChampSim", "Linux"],
-            title_en: "Microarchitecture Modeling via ChampSim",
-            title_zh: "基于 ChampSim 的微架构建模与优化",
+            time: "2023.09 - 2023.12", tech: ["C/C++", "ChampSim", "Linux"],
+            title_en: "Microarchitecture Modeling via ChampSim", title_zh: "基于 ChampSim 的微架构建模与优化",
             desc_en: [
                 "Evaluated various cache replacement and branch prediction strategies using ChampSim, analyzing IPC, MPKI, and hit rates.",
                 "Modified the out-of-order CPU model to implement a non-pipelined core and designed predictors for performance benchmarking."
@@ -345,10 +342,8 @@
             ]
         },
         {
-            time: "2023.01 - 2023.04",
-            tech: ["SystemVerilog", "Quartus", "FPGA"],
-            title_en: "MC68K Chip Emulation on FPGA",
-            title_zh: "FPGA 上的 MC68K 芯片仿真系统",
+            time: "2023.01 - 2023.04", tech: ["SystemVerilog", "Quartus", "FPGA"],
+            title_en: "MC68K Chip Emulation on FPGA", title_zh: "FPGA 上的 MC68K 芯片仿真系统",
             desc_en: [
                 "Developed a memory subsystem for an MC68000 soft-core CPU deployed on a DE1-SoC FPGA.",
                 "Implemented SRAM/DRAM interfaces and introduced a DRAM Cache, along with hardware interfaces including SPI, IIC, CANBUS, and VGA."
@@ -359,10 +354,8 @@
             ]
         },
         {
-            time: "2023.01 - 2023.04",
-            tech: ["Python", "PyTorch", "ViT"],
-            title_en: "Vision Transformer (ViT) Modification",
-            title_zh: "Vision Transformer (ViT) 复现与改造",
+            time: "2023.01 - 2023.04", tech: ["Python", "PyTorch", "ViT"],
+            title_en: "Vision Transformer (ViT) Modification", title_zh: "Vision Transformer (ViT) 复现与改造",
             desc_en: [
                 "Modified the ViT architecture for small datasets, achieving 80% Top-1 accuracy on CIFAR-100 without large-scale pre-training.",
                 "Built a pipeline with data augmentation and mixed-precision training, reducing training time by 30%."
@@ -374,13 +367,11 @@
         }
     ];
 
-    // ===== 工作与科研经历数据 (分离独立) =====
+    // ===== 工作经历数据 =====
     const experienceData = [
         {
-            time: "2023.09 - 2023.12",
-            tech: ["Teaching", "Operating Systems", "UBC"],
-            title_en: "Teaching Assistant @ UBC",
-            title_zh: "UBC 操作系统课程助教",
+            time: "2023.09 - 2023.12", tech: ["Teaching", "Operating Systems", "UBC"],
+            title_en: "Teaching Assistant @ UBC", title_zh: "UBC 操作系统课程助教",
             desc_en: [
                 "Served as a Teaching Assistant for the Computer Operating Systems course.",
                 "Responsible for answering student inquiries, grading assignments, and assisting professors in maintaining teaching quality."
@@ -391,10 +382,8 @@
             ]
         },
         {
-            time: "2022.05 - 2022.08",
-            tech: ["ESP32", "JavaScript", "IoT Data"],
-            title_en: "Lab Assistant @ Wuhan Univ of Tech",
-            title_zh: "武汉理工大学 实验室助理",
+            time: "2022.05 - 2022.08", tech: ["ESP32", "JavaScript", "IoT Data"],
+            title_en: "Lab Assistant @ Wuhan Univ of Tech", title_zh: "武汉理工大学 实验室助理",
             desc_en: [
                 "Developed a local web interface using JavaScript on an ESP32 to visualize propeller deformation data collected by fiber optic sensors via real-time charts.",
                 "Implemented a slider control component to precisely adjust brushless motor speed, supporting real-time observation of dynamic propeller deformation."
@@ -405,10 +394,8 @@
             ]
         },
         {
-            time: "2021.05 - 2021.08",
-            tech: ["Hardware", "Optics", "Problem Solving"],
-            title_en: "Lab Assistant @ YOFC State Key Lab",
-            title_zh: "长飞光纤光缆全国重点实验室 助理",
+            time: "2021.05 - 2021.08", tech: ["Hardware", "Optics", "Problem Solving"],
+            title_en: "Lab Assistant @ YOFC State Key Lab", title_zh: "长飞光纤光缆全国重点实验室 助理",
             desc_en: [
                 "Participated in temperature-cycling aging experiments to simulate decades of fiber aging and determine lifespan.",
                 "Identified a critical flaw: fixing the fiber by wrapping it tightly with tape at the top of the test tube caused severe stress concentration, leading to premature breakage.",
@@ -422,18 +409,13 @@
         }
     ];
 
-    // ===== 通用卡片渲染函数 =====
     function renderCardContainer(containerId, dataArray) {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
-        
         dataArray.forEach(p => {
             const card = document.createElement('div');
             card.className = 'card';
-            
             const tagsHtml = p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
-            
-            // 将数组转化为 HTML 格式保存在 data 属性中
             const htmlEn = generateListHtml(p.desc_en);
             const htmlZh = generateListHtml(p.desc_zh);
 
@@ -452,8 +434,7 @@
     renderCardContainer('projects-container', projectsData);
     renderCardContainer('experience-container', experienceData);
 
-
-    // ===== 课程与学术数据 =====
+    // ===== 学术与课程双语数据 =====
     const uniStats = {
         'UofT': 'Master of Engineering (MEng) in Computer Engineering &nbsp;|&nbsp; <span class="highlight">GPA: 3.8/4.0</span>',
         'UBC': 'B.A.Sc. in Electrical and Computer Engineering (Co-op) &nbsp;|&nbsp; <span class="highlight">GRE: 335/340</span>',
@@ -472,40 +453,127 @@
     }
 
     const coursesData = [
-        { code: "APS1051H", title: "Portfolio Management Praxis Under Real Market Constraint", term: "2026 Winter", uni: "UofT", desc: "Practical portfolio management with real-world constraints: portfolio construction, risk measures, optimisation techniques, backtesting, and execution considerations." },
-        { code: "ECE1513H", title: "Introduction to Machine Learning", term: "2026 Winter", uni: "UofT", desc: "Foundations of machine learning: supervised and unsupervised methods, linear models, evaluation metrics, and an introduction to neural networks." },
-        { code: "ECE1778H", title: "Creative Applications for Mobile Devices", term: "2025 Fall", uni: "UofT", desc: "Design and development of mobile applications that leverage sensors and machine learning: prototyping, UX for mobile, and performance trade-offs." },
-        { code: "ECE1724H", title: "Special Topics in Software Engineering (Wearable AI)", term: "2025 Fall", uni: "UofT", desc: "Project-based exploration of wearable systems and on-device AI: sensor fusion, low-power models, embedded deployment, and human-centered design." },
-        { code: "ECE1779H", title: "Introduction to Cloud Computing", term: "2025 Fall", uni: "UofT", desc: "Principles and practices of cloud computing, scalable architectures, and developing applications for modern cloud environments." },
-        { code: "CSC2547", title: "Reinforcement Learning", term: "2025 Fall", uni: "UofT", desc: "Advanced topics in deep reinforcement learning, policy gradients, Markov decision processes, and dynamic programming." },
-        { code: "APS1052H", title: "AI in Finance: From Neural Networks to Deep Learning", term: "2025 Winter", uni: "UofT", desc: "Applications of neural networks and deep learning to financial problems: pricing, forecasting, risk modeling, and algorithmic trading." },
-        { code: "ECE1786H", title: "Creative Applications of NLP", term: "2024 Fall", uni: "UofT", desc: "Applied NLP techniques for creative tasks: text preprocessing, language models, generation and evaluation (including transformer-based models)." },
-        { title: "Data Driven Techniques for e-Business", uni: "PKU", desc: "Exploration of data-driven methodologies, analytics, and infrastructure utilized in modern e-business environments." },
-        { title: "Fundamentals of Control Theory", uni: "PKU", desc: "Mathematical foundations of dynamic systems and control engineering principles." },
-        { code: "CPEN 491F", title: "Computer Engineering Capstone Design", uni: "UBC", desc: "Comprehensive engineering design project integrating hardware and software components." },
-        { code: "APSC 450", title: "Professional Engineering Practice", uni: "UBC", desc: "Professional and ethical responsibilities of engineers, legal frameworks, and engineering practice." },
-        { code: "CPEN 442", title: "Introduction to Cybersecurity", uni: "UBC", desc: "Fundamentals of computer security, cryptography, network security, and secure software design." },
-        { code: "CPEN 355", title: "Machine Learning with Engineering Applications", uni: "UBC", desc: "Application of machine learning algorithms to solve complex engineering problems." },
-        { code: "CPEN 481", title: "Economic Analysis of Engineering Projects", uni: "UBC", desc: "Techniques for evaluating the economic feasibility and financial aspects of engineering projects." },
-        { code: "CPEN 431", title: "Design of Distributed Software Applications", uni: "UBC", desc: "Architecture, protocols, and implementation of distributed systems and network applications." },
-        { code: "ELEC 331", title: "Computer Communications", uni: "UBC", desc: "Network protocols, data transmission, and the layered architecture of the Internet." },
-        { code: "CPEN 400D", title: "Deep Learning", uni: "UBC", desc: "In-depth study of deep neural networks, backpropagation, and modern deep learning architectures." },
-        { code: "CPEN 411", title: "Computer Architecture", uni: "UBC", desc: "Advanced processor design, memory hierarchies, instruction-level parallelism, and performance analysis." },
-        { code: "CPEN 412", title: "Microcomputer Systems Design", uni: "UBC", desc: "Advanced design of microcomputer systems, integrating microprocessors, memory, and peripherals." },
-        { code: "CPEN 331", title: "Operating Systems", uni: "UBC", desc: "Core OS concepts: concurrency, memory management, file systems, and process scheduling." },
-        { code: "CPEN 311", title: "Digital Systems Design", uni: "UBC", desc: "Advanced digital logic design, hardware description languages (VHDL/Verilog), and FPGA implementation." },
-        { code: "CPSC 320", title: "Intermediate Algorithm Design and Analysis", uni: "UBC", desc: "Systematic design and mathematical analysis of algorithms, complexity theory, and dynamic programming." },
-        { code: "MATH 302", title: "Introduction to Probability", uni: "UBC", desc: "Fundamentals of probability theory, random variables, and probability distributions." },
-        { code: "APSC 377", title: "Nuclear Weapons and Arms Control", uni: "UBC", desc: "Exploration of the history, technology, and political implications of nuclear weapons and arms control." },
-        { code: "CNTO 311", title: "Basic Cantonese for Mandarin Speakers", uni: "UBC", desc: "Basic Cantonese language skills tailored for Mandarin speakers." },
-        { code: "CPEN 291", title: "Computer Engineering Design Studio I", uni: "UBC", desc: "Introductory engineering design projects emphasizing teamwork, requirements and prototyping." },
-        { code: "CPEN 212", title: "Computing Systems II", uni: "UBC", desc: "Systems-level programming and interactions between software and hardware." },
-        { code: "CPSC 221", title: "Basic Algorithms and Data Structures", uni: "UBC", desc: "Design and analysis of basic algorithms and data structures, including lists, trees, and graphs." },
-        { code: "ELEC 201", title: "Circuit Analysis I", uni: "UBC", desc: "Analysis of linear circuits, circuit laws and basic network theorems used in engineering." },
-        { code: "MATH 256", title: "Differential Equations", uni: "UBC", desc: "Ordinary differential equations and techniques for solving engineering problems." },
-        { code: "MATH 220", title: "Mathematical Proof", uni: "UBC", desc: "Introduction to mathematical proofs, set theory, and formal logic." },
-        { code: "CPEN 221", title: "Software Construction I", uni: "UBC", desc: "Principles of software design, modularity and testing; practical coding and design assignments." },
-        { code: "CPEN 211", title: "Introduction to Microcomputers", uni: "UBC", desc: "Fundamentals of microcomputer organization and low-level programming; basic assembly and interfacing." }
+        // UofT
+        { code: "ECE1513H", term: "2024 Fall", uni: "UofT", 
+          title_en: "Introduction to Machine Learning", title_zh: "机器学习导论", 
+          desc_en: "Foundations of machine learning: supervised and unsupervised methods, linear models, evaluation metrics, and an introduction to neural networks.", 
+          desc_zh: "机器学习基础：监督与无监督方法、线性模型、评估指标及神经网络入门。" },
+        { code: "ECE1778H", term: "2024 Fall", uni: "UofT", 
+          title_en: "Creative Applications for Mobile Devices", title_zh: "移动设备创意应用", 
+          desc_en: "Design and development of mobile applications that leverage sensors and machine learning: prototyping, UX for mobile, and performance trade-offs.", 
+          desc_zh: "利用传感器与机器学习进行移动应用的设计与开发：原型制作、移动端用户体验以及性能权衡。" },
+        { code: "ECE1724H", term: "2024 Fall", uni: "UofT", 
+          title_en: "Special Topics in Software Engineering (Wearable AI)", title_zh: "软件工程专研 (可穿戴人工智能)", 
+          desc_en: "Project-based exploration of wearable systems and on-device AI: sensor fusion, low-power models, embedded deployment, and human-centered design.", 
+          desc_zh: "基于项目的可穿戴系统与端侧 AI 探索：传感器融合、低功耗模型、嵌入式部署及以人为本的设计。" },
+        { code: "ECE1779H", term: "2025 Winter", uni: "UofT", 
+          title_en: "Introduction to Cloud Computing", title_zh: "云计算导论", 
+          desc_en: "Principles and practices of cloud computing, scalable architectures, and developing applications for modern cloud environments.", 
+          desc_zh: "云计算的原理与实践、可扩展架构，以及现代云环境下的应用开发。" },
+        { code: "ECE1508H", term: "2025 Winter", uni: "UofT", 
+          title_en: "Reinforcement Learning", title_zh: "强化学习", 
+          desc_en: "Advanced topics in deep reinforcement learning, policy gradients, Markov decision processes, and dynamic programming.", 
+          desc_zh: "深度强化学习进阶主题：策略梯度、马尔可夫决策过程以及动态规划。" },
+        { code: "APS1051H", term: "2026 Winter", uni: "UofT", 
+          title_en: "Portfolio Management Praxis Under Real Market Constraint", title_zh: "真实市场约束下的投资组合管理实践", 
+          desc_en: "Practical portfolio management with real-world constraints: portfolio construction, risk measures, optimisation techniques, backtesting, and execution considerations.", 
+          desc_zh: "真实世界约束下的实践组合管理：投资组合构建、风险度量、优化技术、回测及执行考量。" },
+        
+        // PKU
+        { uni: "PKU", 
+          title_en: "Data Driven Techniques for e-Business", title_zh: "电子商务数据驱动技术", 
+          desc_en: "Exploration of data-driven methodologies, analytics, and infrastructure utilized in modern e-business environments.", 
+          desc_zh: "探索现代电子商务环境中应用的数据驱动方法、分析技术及底层架构。" },
+        { uni: "PKU", 
+          title_en: "Fundamentals of Control Theory", title_zh: "控制理论基础", 
+          desc_en: "Mathematical foundations of dynamic systems and control engineering principles.", 
+          desc_zh: "动态系统与控制工程原理的数学基础。" },
+
+        // UBC
+        { code: "CPEN 491F", uni: "UBC", 
+          title_en: "Computer Engineering Capstone Design", title_zh: "计算机工程毕业设计 (Capstone)", 
+          desc_en: "Comprehensive engineering design project integrating hardware and software components.", 
+          desc_zh: "整合硬件与软件组件的综合性工程设计项目。" },
+        { code: "CPEN 442", uni: "UBC", 
+          title_en: "Introduction to Cybersecurity", title_zh: "网络安全导论", 
+          desc_en: "Fundamentals of computer security, cryptography, network security, and secure software design.", 
+          desc_zh: "计算机安全、密码学、网络安全与安全软件设计基础。" },
+        { code: "CPEN 355", uni: "UBC", 
+          title_en: "Machine Learning with Engineering Applications", title_zh: "机器学习与工程应用", 
+          desc_en: "Application of machine learning algorithms to solve complex engineering problems.", 
+          desc_zh: "应用机器学习算法解决复杂的工程问题。" },
+        { code: "CPEN 481", uni: "UBC", 
+          title_en: "Economic Analysis of Engineering Projects", title_zh: "工程项目经济分析", 
+          desc_en: "Techniques for evaluating the economic feasibility and financial aspects of engineering projects.", 
+          desc_zh: "评估工程项目经济可行性与财务状况的分析技术。" },
+        { code: "CPEN 431", uni: "UBC", 
+          title_en: "Design of Distributed Software Applications", title_zh: "分布式软件应用设计", 
+          desc_en: "Architecture, protocols, and implementation of distributed systems and network applications.", 
+          desc_zh: "分布式系统与网络应用的架构、协议与实现。" },
+        { code: "ELEC 331", uni: "UBC", 
+          title_en: "Computer Communications", title_zh: "计算机通信", 
+          desc_en: "Network protocols, data transmission, and the layered architecture of the Internet.", 
+          desc_zh: "网络协议、数据传输以及互联网的分层架构。" },
+        { code: "CPEN 400D", uni: "UBC", 
+          title_en: "Deep Learning", title_zh: "深度学习", 
+          desc_en: "In-depth study of deep neural networks, backpropagation, and modern deep learning architectures.", 
+          desc_zh: "深入研究深度神经网络、反向传播与现代深度学习架构。" },
+        { code: "CPEN 411", uni: "UBC", 
+          title_en: "Computer Architecture", title_zh: "计算机体系结构", 
+          desc_en: "Advanced processor design, memory hierarchies, instruction-level parallelism, and performance analysis.", 
+          desc_zh: "高级处理器设计、内存层级、指令级并行与性能分析。" },
+        { code: "CPEN 412", uni: "UBC", 
+          title_en: "Microcomputer Systems Design", title_zh: "微机系统设计", 
+          desc_en: "Advanced design of microcomputer systems, integrating microprocessors, memory, and peripherals.", 
+          desc_zh: "微机系统的高级设计，集成微处理器、内存与外设。" },
+        { code: "CPEN 331", uni: "UBC", 
+          title_en: "Operating Systems", title_zh: "操作系统", 
+          desc_en: "Core OS concepts: concurrency, memory management, file systems, and process scheduling.", 
+          desc_zh: "操作系统核心概念：并发、内存管理、文件系统与进程调度。" },
+        { code: "CPEN 311", uni: "UBC", 
+          title_en: "Digital Systems Design", title_zh: "数字系统设计", 
+          desc_en: "Advanced digital logic design, hardware description languages (VHDL/Verilog), and FPGA implementation.", 
+          desc_zh: "高级数字逻辑设计、硬件描述语言 (VHDL/Verilog) 及 FPGA 实现。" },
+        { code: "CPSC 320", uni: "UBC", 
+          title_en: "Intermediate Algorithm Design and Analysis", title_zh: "中级算法设计与分析", 
+          desc_en: "Systematic design and mathematical analysis of algorithms, complexity theory, and dynamic programming.", 
+          desc_zh: "算法的系统化设计与数学分析、复杂性理论及动态规划。" },
+        { code: "MATH 302", uni: "UBC", 
+          title_en: "Introduction to Probability", title_zh: "概率论导论", 
+          desc_en: "Fundamentals of probability theory, random variables, and probability distributions.", 
+          desc_zh: "概率论基础、随机变量与概率分布。" },
+        { code: "CPEN 291", uni: "UBC", 
+          title_en: "Computer Engineering Design Studio I", title_zh: "计算机工程设计工作坊 I", 
+          desc_en: "Introductory engineering design projects emphasizing teamwork, requirements and prototyping.", 
+          desc_zh: "强调团队合作、需求分析与原型开发的入门级工程设计项目。" },
+        { code: "CPEN 212", uni: "UBC", 
+          title_en: "Computing Systems II", title_zh: "计算系统 II", 
+          desc_en: "Systems-level programming and interactions between software and hardware.", 
+          desc_zh: "系统级编程及软硬件之间的交互。" },
+        { code: "CPSC 221", uni: "UBC", 
+          title_en: "Basic Algorithms and Data Structures", title_zh: "基础算法与数据结构", 
+          desc_en: "Design and analysis of basic algorithms and data structures, including lists, trees, and graphs.", 
+          desc_zh: "基础算法与数据结构（包括链表、树和图）的设计与分析。" },
+        { code: "ELEC 201", uni: "UBC", 
+          title_en: "Circuit Analysis I", title_zh: "电路分析 I", 
+          desc_en: "Analysis of linear circuits, circuit laws and basic network theorems used in engineering.", 
+          desc_zh: "线性电路分析、电路定律及工程中常用的基本网络定理。" },
+        { code: "MATH 256", uni: "UBC", 
+          title_en: "Differential Equations", title_zh: "微分方程", 
+          desc_en: "Ordinary differential equations and techniques for solving engineering problems.", 
+          desc_zh: "常微分方程及解决工程问题的求解技巧。" },
+        { code: "MATH 220", uni: "UBC", 
+          title_en: "Mathematical Proof", title_zh: "数学证明", 
+          desc_en: "Introduction to mathematical proofs, set theory, and formal logic.", 
+          desc_zh: "数学证明、集合论与形式逻辑入门。" },
+        { code: "CPEN 221", uni: "UBC", 
+          title_en: "Software Construction I", title_zh: "软件构造 I", 
+          desc_en: "Principles of software design, modularity and testing; practical coding and design assignments.", 
+          desc_zh: "软件设计原则、模块化与测试；以及实际编码与设计作业。" },
+        { code: "CPEN 211", uni: "UBC", 
+          title_en: "Introduction to Microcomputers", title_zh: "微机导论", 
+          desc_en: "Fundamentals of microcomputer organization and low-level programming; basic assembly and interfacing.", 
+          desc_zh: "微机组织架构与底层编程基础；基本汇编与接口技术。" }
     ];
 
     const courseContainer = document.getElementById('course-container');
@@ -523,13 +591,14 @@
 
             card.innerHTML = `
                 ${codeHtml}
-                <div class="card-title" style="${titleMargin}">${course.title}</div>
-                <div class="card-desc" style="${!course.term ? 'margin-bottom: 0;' : ''}">${course.desc}</div>
+                <div class="card-title bilingual" style="${titleMargin}" data-en="${course.title_en}" data-zh="${course.title_zh}"></div>
+                <div class="card-desc bilingual" data-en="${course.desc_en}" data-zh="${course.desc_zh}" style="${!course.term ? 'margin-bottom: 0;' : ''}"></div>
                 ${footerHtml}
             `;
             courseContainer.appendChild(card);
         });
         updateUniInfo(filter);
+        updateBilingualTexts(); // 在渲染新卡片后更新语言
     }
 
     filterButtons.forEach(btn => {
