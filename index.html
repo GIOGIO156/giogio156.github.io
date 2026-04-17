@@ -6,7 +6,7 @@
     <title>AI & Systems Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* 深色主题配色规范 (参考图3-图5) */
+        /* 深色主题配色规范 */
         :root {
             --bg-main: #111111;
             --bg-card: #1c1c1c;
@@ -92,7 +92,7 @@
             border-color: var(--text-primary);
         }
 
-        /* Hero / About 模块 (图3风格) */
+        /* Hero / About 模块 */
         .hero {
             text-align: center;
             padding: 80px 0 60px;
@@ -163,53 +163,79 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 胶囊过滤器 (图4风格) */
+        /* 升级版胶囊过滤器 (大型带Logo) */
         .pills-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 40px;
+            gap: 16px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
         .pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             background: transparent;
             border: 1px solid var(--border-light);
             color: var(--text-secondary);
-            padding: 10px 24px;
-            border-radius: 30px;
+            padding: 10px 24px 10px 14px; /* 左边距稍小，为了对齐Logo */
+            border-radius: 40px;
             font-family: var(--font-display);
-            font-size: 0.9rem;
+            font-size: 1.05rem; /* 字体加大 */
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+        }
+
+        .pill-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .pill-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .pill:hover {
             border-color: var(--border-focus);
             color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
+            transform: translateY(-2px);
         }
 
         .pill.active {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
             border-color: var(--text-primary);
             color: var(--text-primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        /* 课程列表/项目网格布局 */
+        /* 课程列表网格布局 */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 24px;
         }
 
-        /* 统一卡片设计 (图4风格) */
+        /* 精简版卡片设计 */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
             border-radius: 16px;
             padding: 30px 24px;
             transition: transform 0.3s, border-color 0.3s;
-            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -217,61 +243,27 @@
             border-color: var(--border-focus);
         }
 
-        /* 校徽 + 校名设计 */
-        .school-badge {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .school-logo {
-            width: 36px;
-            height: 36px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        
-        .school-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .school-name {
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
         .card-code {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--accent);
             font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
         .card-title {
             font-family: var(--font-display);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            margin-bottom: 14px;
+            line-height: 1.3;
         }
 
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            flex-grow: 1; /* 让描述部分撑满空间，保证底栏对齐 */
         }
 
         .card-footer {
@@ -279,11 +271,13 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.85rem;
-            color: #666;
+            color: #777;
             font-weight: 500;
+            border-top: 1px solid var(--border-light);
+            padding-top: 16px;
         }
 
-        /* 联系表单 (图5风格) */
+        /* 联系表单 */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -343,10 +337,12 @@
             opacity: 0.9;
         }
         
-        /* 响应式 */
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* 移动端可以后续加汉堡菜单，先隐藏 */
+            .nav-links { display: none; }
             .hero h1 { font-size: 2.2rem; }
+            .pills-container { gap: 12px; }
+            .pill { font-size: 0.95rem; padding: 8px 18px 8px 10px; }
+            .pill-icon { width: 28px; height: 28px; padding: 4px; }
         }
     </style>
 </head>
@@ -398,10 +394,24 @@
         </div>
         
         <div class="pills-container">
-            <button class="pill active filter-btn" data-filter="All">All Background</button>
-            <button class="pill filter-btn" data-filter="UofT">UofT (Master)</button>
-            <button class="pill filter-btn" data-filter="UBC">UBC (Bachelor)</button>
-            <button class="pill filter-btn" data-filter="PKU">Peking Univ (Summer)</button>
+            <button class="pill active filter-btn" data-filter="UofT">
+                <div class="pill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Utoronto_coa.svg" alt="UofT Logo">
+                </div>
+                University of Toronto
+            </button>
+            <button class="pill filter-btn" data-filter="UBC">
+                <div class="pill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/1/13/University_of_British_Columbia_Logo.svg" alt="UBC Logo">
+                </div>
+                University of British Columbia
+            </button>
+            <button class="pill filter-btn" data-filter="PKU">
+                <div class="pill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/48/Peking_University_logo.svg" alt="PKU Logo">
+                </div>
+                Peking University
+            </button>
         </div>
 
         <div class="grid-layout" id="course-container">
@@ -434,7 +444,7 @@
 </div>
 
 <script>
-    // ======= 语言切换逻辑 =======
+    // 语言切换逻辑
     let currentLang = 'en';
     const langToggleBtn = document.getElementById('langToggle');
     const bilingualElements = document.querySelectorAll('.bilingual, .nav-btn');
@@ -446,7 +456,7 @@
         });
     });
 
-    // ======= 导航切换逻辑 =======
+    // 导航切换逻辑
     const navButtons = document.querySelectorAll('.nav-btn');
     const sections = document.querySelectorAll('.page-section');
 
@@ -462,27 +472,9 @@
         });
     });
 
-    // ======= 学术履历数据源 =======
-    // 包含 UofT, UBC 和 PKU (北京大学)。按时间倒序排列。
-    
-    // 提取学校Logo信息 (使用维基百科可靠无背景图或矢量图)
-    const schoolMeta = {
-        "UofT": {
-            name: "University of Toronto",
-            logo: "https://upload.wikimedia.org/wikipedia/en/0/04/Utoronto_coa.svg"
-        },
-        "UBC": {
-            name: "University of British Columbia",
-            logo: "https://upload.wikimedia.org/wikipedia/en/1/13/University_of_British_Columbia_Logo.svg"
-        },
-        "PKU": {
-            name: "Peking University",
-            logo: "https://upload.wikimedia.org/wikipedia/en/4/48/Peking_University_logo.svg"
-        }
-    };
-
+    // 学术履历数据源
     const coursesData = [
-        // UofT (2024-2026)
+        // UofT
         { code: "APS1051H", title: "Portfolio Management Praxis Under Real Market Constraint", term: "2026 Winter", uni: "UofT", desc: "Practical portfolio management with real-world constraints: portfolio construction, risk measures, optimisation techniques, backtesting, and execution considerations." },
         { code: "ECE1513H", title: "Introduction to Machine Learning", term: "2026 Winter", uni: "UofT", desc: "Foundations of machine learning: supervised and unsupervised methods, linear models, evaluation metrics, and an introduction to neural networks." },
         { code: "ECE1778H", title: "Creative Applications for Mobile Devices", term: "2025 Fall", uni: "UofT", desc: "Design and development of mobile applications that leverage sensors and machine learning: prototyping, UX for mobile, and performance trade-offs." },
@@ -492,11 +484,11 @@
         { code: "APS1052H", title: "AI in Finance: From Neural Networks to Deep Learning", term: "2025 Winter", uni: "UofT", desc: "Applications of neural networks and deep learning to financial problems: pricing, forecasting, risk modeling, and algorithmic trading." },
         { code: "ECE1786H", title: "Creative Applications of NLP", term: "2024 Fall", uni: "UofT", desc: "Applied NLP techniques for creative tasks: text preprocessing, language models, generation and evaluation (including transformer-based models)." },
 
-        // PKU Summer School (2022 Summer)
+        // PKU
         { code: "Credit: 3 | Grade: 83.5", title: "Data Driven Techniques for e-Business", term: "Summer 2022", uni: "PKU", desc: "Exploration of data-driven methodologies, analytics, and infrastructure utilized in modern e-business environments." },
         { code: "Credit: 3 | Grade: 80.0", title: "Fundamentals of Control Theory", term: "Summer 2022", uni: "PKU", desc: "Mathematical foundations of dynamic systems and control engineering principles." },
 
-        // UBC (2021-2024)
+        // UBC
         { code: "CPEN 491F", title: "Computer Engineering Capstone Design", term: "Year 4", uni: "UBC", desc: "Comprehensive engineering design project integrating hardware and software components." },
         { code: "CPEN 400D", title: "Deep Learning", term: "Year 3", uni: "UBC", desc: "In-depth study of deep neural networks, backpropagation, and modern deep learning architectures." },
         { code: "CPEN 331", title: "Operating Systems", term: "Year 3", uni: "UBC", desc: "Core OS concepts: concurrency, memory management, file systems, and process scheduling." },
@@ -509,24 +501,16 @@
     const courseContainer = document.getElementById('course-container');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // ======= 渲染卡片函数 =======
+    // 渲染精简版卡片
     function renderCourses(filter) {
         courseContainer.innerHTML = '';
-        const filteredData = filter === 'All' ? coursesData : coursesData.filter(c => c.uni === filter);
+        const filteredData = coursesData.filter(c => c.uni === filter);
         
         filteredData.forEach(course => {
-            const meta = schoolMeta[course.uni];
             const card = document.createElement('div');
             card.className = 'card';
             
-            // 构建带有校徽的头部、课程代码、标题和描述
             card.innerHTML = `
-                <div class="school-badge">
-                    <div class="school-logo">
-                        <img src="${meta.logo}" alt="${course.uni} Logo">
-                    </div>
-                    <div class="school-name">${meta.name}</div>
-                </div>
                 <div class="card-code">${course.code}</div>
                 <div class="card-title">${course.title}</div>
                 <div class="card-desc">${course.desc}</div>
@@ -547,8 +531,8 @@
         });
     });
 
-    // 初始渲染
-    renderCourses('All');
+    // 初始渲染多大 (UofT) 课程，不再有 All
+    renderCourses('UofT');
 </script>
 
 </body>
